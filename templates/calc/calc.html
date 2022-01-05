@@ -1,0 +1,22 @@
+{% extends 'mysite/base.html' %}
+ 
+{% block content %}
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        {{ forms }}
+        <input type='submit' value="click">  
+    </form>
+    <p>{{ answer }}</p>
+    <p>{{ kcal }}, {{ protein }}, {{ lipid }}, {{ water }}</p>
+</body>
+
+{% endblock %}
+
+</html>
