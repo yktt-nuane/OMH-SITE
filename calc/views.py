@@ -10,9 +10,11 @@ def index(request):
     }
     if (request.method == 'POST'):
         params['answer'] = 'Answer is ' + str(int(request.POST['ペプタメンスタンダード']) + int(request.POST['アイソカルサポート']))
-        params['kcal'] =  str(int(request.POST['ペプタメンスタンダード'])*2 + int(request.POST['アイソカルサポート'])*3) + "kcal"
-        params['protein'] =  '蛋白:' + str(int(request.POST['ペプタメンスタンダード'])*0.1 + int(request.POST['アイソカルサポート'])*0.08) + "g"
-        params['lipid'] =  '脂質:' + str(int(request.POST['ペプタメンスタンダード'])*0.1 + int(request.POST['アイソカルサポート'])*0.08) + "g"
-        params['water'] =  '水分:' + str(int(request.POST['ペプタメンスタンダード'])*0.1 + int(request.POST['アイソカルサポート'])*0.08) + "mL"
-        params['forms'] = CalcPlusForm(request.POST)
+        params['energy_kcal'] =  str(int(request.POST['ペプタメンスタンダード'])*2 + int(request.POST['アイソカルサポート'])*3) + "kcal"
+        params['sugar_g'] =  str(int(request.POST['ペプタメンスタンダード'])*2 + int(request.POST['アイソカルサポート'])*3) + "kcal"
+        params['protein_g'] =  str(int(request.POST['ペプタメンスタンダード'])*2 + int(request.POST['アイソカルサポート'])*3) + "kcal"
+        params['lipid_g'] =  '蛋白:' + str(int(request.POST['ペプタメンスタンダード'])*0.1 + int(request.POST['アイソカルサポート'])*0.08) + "g"
+        params['water_mL'] =  '脂質:' + str(int(request.POST['ペプタメンスタンダード'])*0.1 + int(request.POST['アイソカルサポート'])*0.08) + "g"
+        params['salt_g'] =  '水分:' + str(int(request.POST['ペプタメンスタンダード'])*0.1 + int(request.POST['アイソカルサポート'])*0.08) + "mL"
+        params['potassium_mEq'] = CalcPlusForm(request.POST)
     return render(request, 'calc/calc.html', params)
