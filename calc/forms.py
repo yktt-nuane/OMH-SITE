@@ -1,9 +1,8 @@
 from django import forms
-
 from calc.models import Nutrition
 
 class CalcPlusForm(forms.Form):
-    ペプタメンスタンダード = forms.IntegerField()
+    nutritionselect = forms.IntegerField()
     アイソカルサポート = forms.IntegerField()
 
 class NutritionForm(forms.ModelForm):
