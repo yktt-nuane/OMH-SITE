@@ -156,3 +156,4 @@ cython_debug/
 memo.yaml
 .editorconfig
 .DS_Store
+.json
