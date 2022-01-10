@@ -1,7 +1,7 @@
 {% extends 'anestudy/base.html' %}
- 
+
 {% block content %}
- 
+
 <div class="container">
     <div class="p-4 p-md-5 mb-4 rounded bg-light">
         <div class="col-md-6 px-0">
@@ -15,7 +15,7 @@
     <div class="row mb-2">
         {% for obj in ranks %}
         <div class="col-md-6">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row 
+            <div class="row g-0 border rounded overflow-hidden flex-md-row
             mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
                     <strong class="d-inline-block mb-2 text-primary">
@@ -40,7 +40,7 @@
         {% endfor %}
     </div>
 </div>
- 
+
 <main class="container">
     <div class="row">
         <div class="col-md-8">
@@ -50,7 +50,7 @@
             {% for obj in articles %}
             <div class="blog-post">
                 <h2 class="blog-post-title">{{ obj.title }}</h2>
-                <p class="blog-post-meta">{{ obj.created_at }} by 
+                <p class="blog-post-meta">{{ obj.created_at }} by
                 <a href="#">{{ obj.author }}</a></p>
                 <p>{{ obj.text|slice:":120" }}...</p>
                 <a href="/blog/{{obj.id}}/" class="">続きはこちら</a>
@@ -64,8 +64,15 @@
         </div>
         {% include 'anestudy/snippets/sidebar.html' %}
     </div>
+    <head>
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>tinymce.init({ selector:'textarea' });</script>
+      </head>
+      <body>
+        <textarea>Next, use our Get Started docs to setup Tiny!</textarea>
+      </body>
 </main>
- 
 
- 
+
+
 {% endblock %}

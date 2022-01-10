@@ -19,6 +19,7 @@ omh-app
 * Docker version 20.10.11
 * Docker Compose version v2.2.1
 
+pip install -r requirements.txt
 # Installation
 
 docker pull google/cloud-sdk:latest
@@ -29,7 +30,6 @@ docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud compute
 
 ```bash
 git clone https://github.com/yktt-nuane/omh-app.git
-python manage.py makemigrations
 python manage.py migrate
 docker compose up -d --build
 docker compose up
