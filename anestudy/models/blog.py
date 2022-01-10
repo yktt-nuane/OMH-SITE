@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.db.models.aggregates import Count
+from ckeditor.fields import RichTextField
 
 class Tag(models.Model):
     slug = models.CharField(primary_key=True, unique=True, max_length=20)
@@ -13,7 +14,7 @@ class Tag(models.Model):
 class Article(models.Model):
     title = models.CharField(default='', max_length=30)
 
-    text = models.TextField(default='',)
+    text = RichTextField(blank=True, null=True)
 
     author = models.CharField(default='', max_length=30)
 
