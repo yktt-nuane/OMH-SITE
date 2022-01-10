@@ -1,6 +1,10 @@
 import os
 from pathlib import Path
 
+"""import pymysql  # noqa: 402
+pymysql.version_info = (1, 4, 6, 'final', 0)  # change mysqlclient version
+pymysql.install_as_MySQLdb()"""
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -17,9 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mysite',
-    'blog',
-    'calc',
+    'anestudy',
 ]
 
 MIDDLEWARE = [
@@ -54,16 +56,39 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+"""
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': 'db',
+            'PORT': '3306',
+            'NAME': 'omh-app-test',
+            'USER': 'testuser',
+            'PASSWORD': 'uhLbcAlIdkxiOvK6',
+        }
     }
-}
+"""
+
+if os.getenv('GAE_APPLICATION', None):
+    # GAE
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '/cloudsql/myapp-omh:us-central1:omh-app-test',
+            'USER': 'testuser',
+            'PASSWORD': 'uhLbcAlIdkxiOvK6',
+            'NAME': 'omh-app-test',
+        }
+    }
+else:
+    # ローカル
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -101,7 +126,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # --- static 設定項目 ---
 
-AUTH_USER_MODEL = 'mysite.User'
+AUTH_USER_MODEL = 'anestudy.User'
 
 LOGIN_URL = '/login/'
 
