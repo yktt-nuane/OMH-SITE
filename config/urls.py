@@ -11,7 +11,7 @@ urlpatterns = [
     path('login/', views.Login.as_view()),
     path('logout/', LogoutView.as_view()),
     path('blogs/', views.blogs),
-    #path('blogs/', include('anestudy.urls')),
+    path('anestudy/', include('anestudy.urls')),
     path('signup/', views.signup),
     path('mypage/', views.MypageView.as_view()),
     path('contact/', views.contact),

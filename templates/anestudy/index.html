@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <p class="card-text mb-auto">{{ obj.text }}</p>
-                    <a href="/blog/{{ obj.id }}" class="stretched-link">続きを読む</a>
+                    <a href="/anestudy/{{ obj.id }}" class="stretched-link">続きを読む</a>
                 </div>
             </div>
         </div>
@@ -48,18 +48,18 @@
                 記事一覧
             </h3>
             {% for obj in articles %}
-            <div class="blog-post">
-                <h2 class="blog-post-title">{{ obj.title }}</h2>
-                <p class="blog-post-meta">{{ obj.created_at }} by
+            <div class="anestudy-post">
+                <h2 class="anestudy-post-title">{{ obj.title }}</h2>
+                <p class="anestudy-post-meta">{{ obj.created_at }} by
                 <a href="#">{{ obj.author }}</a></p>
                 <p>{{ obj.text|slice:":120" }}...</p>
-                <a href="/blog/{{obj.id}}/" class="">続きはこちら</a>
+                <a href="/anestudy/{{obj.id}}/" class="">続きはこちら</a>
             </div>
             <hr>
             {% endfor %}
 
-            <nav class="blog-pagination">
-                <a class="btn btn-outline-primary" href="/blogs">麻酔一覧はこちら</a>
+            <nav class="anestudy-pagination">
+                <a class="btn btn-outline-primary" href="/blogs/">麻酔一覧はこちら</a>
             </nav>
         </div>
         {% include 'anestudy/snippets/sidebar.html' %}

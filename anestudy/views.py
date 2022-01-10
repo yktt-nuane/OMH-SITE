@@ -65,14 +65,14 @@ class MypageView(LoginRequiredMixin, View):
 
 def contact(request):
     context = {}
-    if request.method == 'POST': 
+    if request.method == 'POST':
         # --- email to me ---
         subject = 'お問い合わせがありました'
         message = """お問い合わせがありました。\n名前: {}\nメールアドレス: {}\n内容: {}""".format(
-            request.POST.get('name'), 
-            request.POST.get('email'), 
+            request.POST.get('name'),
+            request.POST.get('email'),
             request.POST.get('content'))
-        
+
         email_from = os.environ['DEFAULT_EMAIL_FROM']
         email_to = [os.environ['DEFAULT_EMAIL_FROM'],]
         send_mail(subject,message,email_from,email_to,)
