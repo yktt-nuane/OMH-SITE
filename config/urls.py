@@ -11,8 +11,12 @@ urlpatterns = [
     path('login/', views.Login.as_view()),
     path('logout/', LogoutView.as_view()),
     path('blogs/', views.blogs),
+    path('postarticles/', views.blogs),
     path('anestudy/', include('anestudy.urls')),
     path('signup/', views.signup),
     path('mypage/', views.MypageView.as_view()),
     path('contact/', views.contact),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('add/postarticle', views.add_post, name='add_post'),
+    path('edit/postarticle/<int:postarticle_id>/', views.edit_post, name='edit_post')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
-from anestudy.models.blog import Article, Comment, Tag
-from anestudy.forms import UserCreationForm, ProfileForm, CommentForm
+from anestudy.models.blog import Article, Comment, PostArticle, Tag
+from anestudy.forms import UserCreationForm, ProfileForm, CommentForm, PostForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.core.mail import send_mail
 from django.core.paginator import Paginator
+from django.shortcuts import get_object_or_404
 import os
 
 def index(request):
@@ -124,3 +125,22 @@ def tags(request, slug):
         'page_number': page_number,
     }
     return render(request, 'anestudy/blogs.html', context)
+
+def add_post(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            postarticle_item = form.save(commit=False)
+            postarticle_item.save()
+            return redirect('/')
+    else:
+        form = PostForm()
+    return render(request, 'anestudy/postarticle.html', {'form': form})
+
+def edit_post(request, postarticle_id=None):
+    postarticle_item = get_object_or_404(PostArticle, id=postarticle_id)
+    form = PostForm(request.POST or None, instance=postarticle_item)
+    if form.is_valid():
+        form.save()
+        return redirect('/')
+    return render(request, 'anestudy/postarticle.html', {'form': form})

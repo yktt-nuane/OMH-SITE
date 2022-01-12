@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group
 from anestudy.models.account import User
 from anestudy.models.profile import Profile
-from anestudy.models.blog import Article, Comment, Tag
+from anestudy.models.blog import Article, Comment, PostArticle, Tag, PostArticle
 
 # --- 管理画面でUserを作成するにはここが必要 ---
 from anestudy.forms import UserCreationForm
@@ -52,10 +52,12 @@ class ArticleAdmin(admin.ModelAdmin):
     inlines = [TagInline]
     exclude = ['tags',]
 
-
+class PostArticleAdmin(admin.ModelAdmin):
+    exclude = ['tags',]
 
 admin.site.unregister(Group)
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Article, ArticleAdmin)
+admin.site.register(PostArticle, PostArticleAdmin)
 admin.site.register(Comment)
 admin.site.register(Tag)

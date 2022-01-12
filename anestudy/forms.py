@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.forms import fields
-from anestudy.models.blog import Comment
+from anestudy.models.blog import Comment, PostArticle
 
 from anestudy.models.profile import Profile
  
@@ -41,3 +41,8 @@ class CommentForm(forms.ModelForm):
         fields = (
             'comment',
         )
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = PostArticle
+        fields = ('title','text')

@@ -23,7 +23,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'anestudy',
     'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_CONFIGS = {
+    'default':{
+        'height': 500,
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -125,6 +134,9 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media/'
+
 # --- static 設定項目 ---
 
 AUTH_USER_MODEL = 'anestudy.User'
