@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
-from anestudy.models.blog import Article, Comment, PostArticle, Tag
+from anestudy.models.blog import Article, Comment, PostArticle, Tag, PostArticle
 from anestudy.forms import UserCreationForm, ProfileForm, CommentForm, PostForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -8,6 +8,8 @@ from django.contrib.auth import login
 from django.core.mail import send_mail
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404
+from django.views import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 import os
 
 def index(request):
@@ -45,10 +47,6 @@ def signup(request):
             messages.success(request, '登録完了')
             return redirect('/')
     return render(request, 'anestudy/auth.html', context)
-
-from django.views import View
-from django.contrib.auth.mixins import LoginRequiredMixin
-
 class MypageView(LoginRequiredMixin, View):
     context = {}
 
@@ -92,6 +90,17 @@ def blogs(request):
         'page_number': page_number,
     }
     return render(request, 'anestudy/blogs.html', context)
+
+def posted_articles(request):
+    objs = PostArticle.objects.all()
+    paginator = Paginator(objs, 100)
+    page_number = request.GET.get('page')
+    context = {
+        'page_title': '当院の麻酔',
+        'page_obj': paginator.get_page(page_number),
+        'page_number': page_number,
+    }
+    return render(request, 'anestudy/posted_articles.html', context)
 
 def article(request, pk):
     obj = Article.objects.get(pk=pk)
