@@ -122,6 +122,17 @@ def article(request, pk):
     }
     return render(request, 'anestudy/article.html', context)
 
+def posted_article(request, pk):
+    obj = PostArticle.objects.get(pk=pk)
+    if request.method == 'POST':
+        if request.POST.get('like_count', None):
+            obj.count += 1
+            obj.save()
+    context = {
+        'posted_article': obj,
+    }
+    return render(request, 'anestudy/posted_article.html', context)
+
 def tags(request, slug):
     tag = Tag.objects.get(slug=slug)
     objs = tag.article_set.all()

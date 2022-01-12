@@ -40,6 +40,6 @@ class PostArticle(models.Model):
     def save(self):
         self.slug = slugify(self.title)
         super(PostArticle, self).save()
-    
+
     def __str__(self):
         return '%s' % self.title
