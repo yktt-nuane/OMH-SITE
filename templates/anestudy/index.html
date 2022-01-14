@@ -32,7 +32,7 @@
                             {{ obj.count }}
                         </div>
                     </div>
-                    <p class="card-text mb-auto">{{ obj.text|slice:":120"  }}</p>
+                    <p class="card-text mb-auto">{{ obj.text|slice:":120"|safe }}</p>
                     <a href="/anestudy/{{ obj.id }}" class="stretched-link">続きを読む</a>
                 </div>
             </div>
