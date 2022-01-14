@@ -126,8 +126,17 @@ def posted_article(request, pk):
         if request.POST.get('like_count', None):
             obj.count += 1
             obj.save()
+        else:
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.user = request.user
+                comment.article = obj
+                comment.save()
+    comments =  Comment.objects.filter(article=obj)
     context = {
         'posted_article': obj,
+        'comments': comments,
     }
     return render(request, 'anestudy/posted_article.html', context)
 

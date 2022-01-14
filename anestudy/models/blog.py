@@ -29,11 +29,7 @@ class Article(models.Model):
     tags = models.ManyToManyField(Tag, blank=True)
     categories = models.ManyToManyField(Category, blank=True)
 
-class Comment(models.Model):
-    comment = models.TextField(default="", max_length=500)
-    created_at = models.DateField(auto_now_add=True)
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+
 
 class PostArticle(models.Model):
     title = models.CharField(default='', max_length=30)
@@ -52,3 +48,9 @@ class PostArticle(models.Model):
 
     def __str__(self):
         return '%s' % self.title
+
+class Comment(models.Model):
+    comment = models.TextField(default="", max_length=500)
+    created_at = models.DateField(auto_now_add=True)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    article = models.ForeignKey(PostArticle, on_delete=models.CASCADE)
