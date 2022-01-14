@@ -81,16 +81,6 @@ def contact(request):
 
     return render(request, 'anestudy/contact.html', context)
 
-def blogs(request):
-    objs = Article.objects.all()
-    paginator = Paginator(objs, 2)
-    page_number = request.GET.get('page')
-    context = {
-        'page_title': '記事一覧',
-        'page_obj': paginator.get_page(page_number),
-        'page_number': page_number,
-    }
-    return render(request, 'anestudy/blogs.html', context)
 
 def posted_articles(request):
     objs = PostArticle.objects.all()
@@ -152,7 +142,7 @@ def tags(request, slug):
         'page_obj': paginator.get_page(page_number),
         'page_number': page_number,
     }
-    return render(request, 'anestudy/blogs.html', context)
+    return render(request, 'anestudy/posted_articles_tag.html', context)
 
 def add_post(request):
     if request.method == "POST":
