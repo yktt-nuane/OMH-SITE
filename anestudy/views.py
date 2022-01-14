@@ -13,8 +13,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 import os
 
 def index(request):
-    ranks = Article.objects.order_by('-count')[:2]
-    objs = Article.objects.all()[:3]
+    ranks = PostArticle.objects.order_by('-count')[:2]
+    objs = PostArticle.objects.all()[:3]
     context = {
         'title': 'omh-site',
         'articles': objs,
