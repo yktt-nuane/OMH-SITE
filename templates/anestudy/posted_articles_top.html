@@ -1,0 +1,14 @@
+{% extends 'anestudy/base.html' %}
+
+{% block content %}
+
+<main class="container">
+    {{ page_title }}
+    <div class="row row-cols-3" style="height: 300px">
+        {% for obj in top_bojs %}
+            <div class="d-flex align-items-center justify-content-center bg-light border border-dark">
+                <a href="/anestudy/tags/{{ obj.slug }}" class="">{{ obj.name }}</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

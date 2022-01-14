@@ -12,6 +12,13 @@ class Tag(models.Model):
     def __str__(self):
         return self.slug
 
+class Category(models.Model):
+    slug = models.CharField(primary_key=True, unique=True, max_length=20)
+    name = models.CharField(unique=True, max_length=20)
+
+    def __str__(self):
+        return self.slug
+
 class Article(models.Model):
     title = models.CharField(default='', max_length=30)
     text = RichTextField(blank=True, null=True)
@@ -20,6 +27,7 @@ class Article(models.Model):
     updated_at = models.DateField(auto_now=True)
     count = models.IntegerField(default=0,)
     tags = models.ManyToManyField(Tag, blank=True)
+    categories = models.ManyToManyField(Category, blank=True)
 
 class Comment(models.Model):
     comment = models.TextField(default="", max_length=500)
@@ -36,6 +44,7 @@ class PostArticle(models.Model):
     count = models.IntegerField(default=0,)
     tags = models.ManyToManyField(Tag, blank=True)
     slug = models.SlugField(default='', blank=True)
+    categories = models.ManyToManyField(Category, blank=True)
 
     def save(self):
         self.slug = slugify(self.title)

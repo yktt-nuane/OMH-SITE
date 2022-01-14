@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'anestudy',
     'ckeditor',
     'ckeditor_uploader',
+    'import_export',
 ]
 
 CKEDITOR_UPLOAD_PATH = "uploads/"

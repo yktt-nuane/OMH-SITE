@@ -3,3 +3,4 @@ gunicorn==20.0.4
 mysqlclient
 Pillow
 django-ckeditor
+django-import-export

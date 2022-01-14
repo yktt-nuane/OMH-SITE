@@ -3,12 +3,20 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group
 from anestudy.models.account import User
 from anestudy.models.profile import Profile
-from anestudy.models.blog import Article, Comment, PostArticle, Tag, PostArticle
+from anestudy.models.blog import Article, Comment, PostArticle, Tag, PostArticle, Category
 
 # --- 管理画面でUserを作成するにはここが必要 ---
 from anestudy.forms import UserCreationForm
 # ---------------------------------------
 
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
+from import_export.fields import Field
+
+class PostArticleResource(resources.ModelResource):
+
+    class Meta:
+        model = PostArticle
 
 class ProfileInline(admin.StackedInline):
     model = Profile
@@ -17,18 +25,8 @@ class ProfileInline(admin.StackedInline):
 
 class CustomUserAdmin(UserAdmin):
     fieldsets = (
-        (None, {
-            'fields': (
-                'email',
-                'password',
-            )
-        }),
-        (None, {
-            'fields': (
-                'is_active',
-                'is_admin',
-            )
-        })
+        (None, {'fields': ('email','password',)}),
+        (None, {'fields': ('is_active','is_admin',)})
     )
 
     list_display = ('email', 'is_active')
@@ -37,23 +35,26 @@ class CustomUserAdmin(UserAdmin):
     filter_horizontal = ()
 
     add_fieldsets = (
-        (None, {
-            'fields': ('email', 'password',),
-        }),
+        (None, {'fields': ('email', 'password',),}),
     )
     add_form = UserCreationForm
 
     inlines = (ProfileInline,)  # ProfileモデルはUserモデルとOneToOneで紐づいているので、User情報をみる際に一緒に表示するために追記
 
 class TagInline(admin.TabularInline):
-    model = Article.tags.through
+    model = PostArticle.tags.through
+
+class CategoryInline(admin.TabularInline):
+    model = PostArticle.categories.through
 
 class ArticleAdmin(admin.ModelAdmin):
-    inlines = [TagInline]
-    exclude = ['tags',]
 
-class PostArticleAdmin(admin.ModelAdmin):
-    exclude = ['tags',]
+    exclude = ['tags', 'categories']
+
+class PostArticleAdmin(ImportExportModelAdmin):
+    inlines = [TagInline, CategoryInline]
+    exclude = ['tags', 'slug', 'categories']
+    resource_class = PostArticleResource
 
 admin.site.unregister(Group)
 admin.site.register(User, CustomUserAdmin)
@@ -61,3 +62,4 @@ admin.site.register(Article, ArticleAdmin)
 admin.site.register(PostArticle, PostArticleAdmin)
 admin.site.register(Comment)
 admin.site.register(Tag)
+admin.site.register(Category)

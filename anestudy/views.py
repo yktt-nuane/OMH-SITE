@@ -47,6 +47,7 @@ def signup(request):
             messages.success(request, '登録完了')
             return redirect('/')
     return render(request, 'anestudy/auth.html', context)
+
 class MypageView(LoginRequiredMixin, View):
     context = {}
 
@@ -101,6 +102,13 @@ def posted_articles(request):
         'page_number': page_number,
     }
     return render(request, 'anestudy/posted_articles.html', context)
+
+def posted_articles_top(request):
+    objs = Tag.objects.all()
+    context = {
+        'top_bojs': objs,
+    }
+    return render(request, 'anestudy/posted_articles_top.html', context)
 
 def article(request, pk):
     obj = Article.objects.get(pk=pk)

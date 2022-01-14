@@ -11,7 +11,7 @@
             </h3>
             <p class="small text-muted text-right">{{posted_article.created_at}} {{posted_article.author}}</p>
             <div class="my-5">
-                {{ posted_article.text }}
+                {{ posted_article.text |safe }}
             </div>
 
             <div>

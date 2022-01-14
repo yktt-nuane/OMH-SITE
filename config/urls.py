@@ -12,6 +12,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view()),
     path('blogs/', views.blogs),
     path('posted_articles/', views.posted_articles),
+    path('posted_articles_top/', views.posted_articles_top),
     path('anestudy/', include('anestudy.urls')),
     path('signup/', views.signup),
     path('mypage/', views.MypageView.as_view()),
