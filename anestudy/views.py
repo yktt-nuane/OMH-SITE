@@ -143,7 +143,7 @@ def posted_article(request, pk):
 
 def tags(request, slug):
     tag = Tag.objects.get(slug=slug)
-    objs = tag.article_set.all()
+    objs = tag.postarticle_set.all()
 
     paginator = Paginator(objs, 2)
     page_number = request.GET.get('page')
