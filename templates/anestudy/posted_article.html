@@ -10,6 +10,11 @@
                 {{ posted_article.title }}
             </h3>
             <p class="small text-muted text-right">{{posted_article.created_at}} {{posted_article.author}}</p>
+
+            {% if user.is_authenticated %}
+                <a class="btn btn-outline-info" href="edit/postarticle/">編集する</a>
+            {% endif %}
+
             <div class="my-5">
                 {{ posted_article.text |safe }}
             </div>
@@ -18,7 +23,6 @@
                 {% include 'anestudy/snippets/like_count.html' %}
                 {% include 'anestudy/snippets/tag.html' %}
             </div>
-            <a class="btn btn-outline-info" href="edit/postarticle/">編集する</a>
 
             <hr class="my-4">
             {% include 'anestudy/snippets/comment.html' %}

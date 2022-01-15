@@ -17,6 +17,6 @@ urlpatterns = [
     path('mypage/', views.MypageView.as_view()),
     path('contact/', views.contact),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('add/postarticle', views.add_post, name='add_post'),
+    path('posted_articles_top/add/postarticle', views.add_post, name='add_post'),
     path('edit/postarticle/<int:postarticle_id>/', views.edit_post, name='edit_post')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

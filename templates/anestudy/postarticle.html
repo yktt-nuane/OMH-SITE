@@ -1,6 +1,14 @@
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.media }}
-    {{ form }}
-    <input type="submit" value="Save">
-</form>
+{% extends 'anestudy/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form }}
+        <input type="submit" value="Save">
+    </form>
+</div>
+
+{% endblock %}

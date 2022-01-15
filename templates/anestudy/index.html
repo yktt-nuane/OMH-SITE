@@ -15,6 +15,9 @@
     <div class="row mb-2">
         <h3 class="pb-4 font-italic border-bottom">
             ranking
+            {% if user.is_authenticated %}
+                <a class="btn btn-outline-info" href="posted_articles_top/add/postarticle">投稿する</a>
+        {% endif %}
         </h3>
         {% for obj in ranks %}
         <div class="col-md-3">
@@ -47,6 +50,9 @@
 <main class="container">
     <h3 class="pb-4 font-italic border-bottom">
         latest-updated
+        {% if user.is_authenticated %}
+                <a class="btn btn-outline-info" href="posted_articles_top/add/postarticle">投稿する</a>
+        {% endif %}
     </h3>
     <div class="row mb-2">
         {% for obj in latests %}
