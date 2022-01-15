@@ -3,12 +3,25 @@
 {% block content %}
 
 <main class="container">
-    {{ page_title }}
-    <div class="row row-cols-3" style="height: 300px">
+    <h3 class="pb-4 font-bold border-bottom">
+        麻酔一覧
+    </h3>
+    <div class="row mb-2">
         {% for obj in top_bojs %}
-            <div class="d-flex align-items-center justify-content-center bg-light border border-dark">
-                <a href="/anestudy/tags/{{ obj.slug }}" class="">{{ obj.name }}</a>
+        <div class="col-md-3">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row
+            mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <div class="d-inline-block text-warning text-center">
+                        <a href="/anestudy/tags/{{ obj.slug }}" class="">{{ obj.name }}</a>
+                    </div>
+                </div>
             </div>
+        </div>
         {% endfor %}
     </div>
+</main>
+
 {% endblock %}
+
+

@@ -13,12 +13,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 import os
 
 def index(request):
-    ranks = PostArticle.objects.order_by('-count')[:2]
+    ranks = PostArticle.objects.order_by('-count')[:4]
+    latests = PostArticle.objects.order_by('-created_at')[:4]
     objs = PostArticle.objects.all()[:3]
     context = {
         'title': 'omh-site',
         'articles': objs,
         'ranks': ranks,
+        'latests': latests,
     }
     return render(request, 'anestudy/index.html', context)
 
