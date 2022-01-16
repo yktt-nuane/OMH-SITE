@@ -96,9 +96,9 @@ def posted_articles(request):
     return render(request, 'anestudy/posted_articles.html', context)
 
 def posted_articles_top(request):
-    objs = Tag.objects.all()
+    tags = Tag.objects.all()
     context = {
-        'top_bojs': objs,
+        'top_tags': tags,
     }
     return render(request, 'anestudy/posted_articles_top.html', context)
 

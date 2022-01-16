@@ -8,6 +8,7 @@ from django.utils.text import slugify
 class Tag(models.Model):
     slug = models.CharField(primary_key=True, unique=True, max_length=20)
     name = models.CharField(unique=True, max_length=20)
+    category = models.CharField(unique=False, max_length=20, null=True)
 
     def __str__(self):
         return self.slug
