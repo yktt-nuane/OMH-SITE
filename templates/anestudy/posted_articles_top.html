@@ -3,15 +3,55 @@
 {% block content %}
 
 <main class="container">
-    <h3 class="pb-4 font-bold border-bottom">
-        麻酔一覧
+    <div class="text-right">
         {% if user.is_authenticated %}
                 <a class="btn btn-outline-info" href="add/postarticle">投稿する</a>
         {% endif %}
+    </div>
+    <h3 class="pb-4 font-bold border-bottom">
+        基礎
     </h3>
     <div class="row mb-2">
         {% for obj in top_tags %}
-        {% if  obj.category == "masui" %}
+        {% if  obj.category2 == "basic" %}
+        <div class="col-md-3">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row
+            mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <div class="d-inline-block text-warning text-center">
+                        <a href="/anestudy/tags/{{ obj.slug }}" class="">{{ obj.name }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <h3 class="pb-4 font-bold border-bottom">
+        各科の麻酔
+    </h3>
+    <div class="row mb-2">
+        {% for obj in top_tags %}
+        {% if  obj.category2 == "department" %}
+        <div class="col-md-3">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row
+            mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <div class="d-inline-block text-warning text-center">
+                        <a href="/anestudy/tags/{{ obj.slug }}" class="">{{ obj.name }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <h3 class="pb-4 font-bold border-bottom">
+        合併症の麻酔
+    </h3>
+    <div class="row mb-2">
+        {% for obj in top_tags %}
+        {% if  obj.category2 == "complication" %}
         <div class="col-md-3">
             <div class="row g-0 border rounded overflow-hidden flex-md-row
             mb-4 shadow-sm h-md-250 position-relative">

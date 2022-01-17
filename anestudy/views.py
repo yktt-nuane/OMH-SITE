@@ -173,3 +173,6 @@ def edit_post(request, postarticle_id=None):
         form.save()
         return redirect('/')
     return render(request, 'anestudy/postarticle.html', {'form': form})
+
+def omh_index(request):
+    return render(request, 'anestudy/omh_index.html')
