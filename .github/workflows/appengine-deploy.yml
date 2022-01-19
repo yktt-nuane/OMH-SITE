@@ -2,6 +2,7 @@ name: ci
 on: push
 
 jobs:
+  job_id:
     steps:
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
