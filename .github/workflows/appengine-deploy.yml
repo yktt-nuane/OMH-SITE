@@ -2,17 +2,16 @@ name: ci
 on: push
 
 jobs:
-  deplay-staging:
-    name: Deploy to Google App Engine
-    runs-on: ubuntu-latest
-    steps:
-      - uses: google-github-actions/auth@v0
+  job_id:
+    permissions:
+      contents: 'read'
+      id-token: 'write'
 
-      - name: Deploy an App Engine app
-        id: 'auth'
-        uses: google-github-actions/deploy-appengine@v0
-        with:
-          project_id: '${{ secrets.GCP_PROJECT_ID }}'
-          deliverables: app.yaml
-          credentials_json: '${{ secrets.GCP_SA_KEY }}'
-          version: v1
+    steps:
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+    - id: 'deploy'
+      uses: 'google-github-actions/deploy-appengine@v0'
