@@ -1,6 +1,3 @@
-name: ci
-on: push
-
 jobs:
   job_id:
     steps:
