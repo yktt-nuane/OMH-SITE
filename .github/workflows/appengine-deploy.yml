@@ -11,9 +11,9 @@ jobs:
 
       - name: Deploy an App Engine app
         id: deploy-app
-        uses: google-github-actions/deploy-appengine@v0
+        uses: atRobertoFlores/gae_deploy_action@master
         with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          project_name: ${{ secrets.GCP_PROJECT_ID }}
           deliverables: app.yaml
-          credentials: ${{ secrets.GCP_SA_KEY }}
+          service_account: ${{ secrets.GCP_SA_KEY }}
           version: v1
