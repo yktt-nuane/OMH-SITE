@@ -7,6 +7,8 @@ jobs:
       contents: 'read'
       id-token: 'write'
 
+    runs-on: ubuntu-latest
+
     steps:
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
@@ -17,4 +19,3 @@ jobs:
 
     - id: 'deploy'
       uses: 'google-github-actions/deploy-appengine@v0'
-      runs-on: ubuntu-latest
