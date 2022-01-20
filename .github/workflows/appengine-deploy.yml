@@ -1,4 +1,4 @@
-name: myapp-omh-deploy
+name: deploy
 on: push
 
 jobs:
