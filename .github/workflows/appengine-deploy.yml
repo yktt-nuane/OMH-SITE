@@ -1,20 +1,16 @@
-name: myapp-omh-deploy
-on: push
-
 jobs:
   job_id:
-    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Google App Engine
-        uses: google-github-actions/deploy-appengine@v0.4.0
-        with:
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v0'
+      with:
           service_account: 'omh-site-app@myapp-omh.iam.gserviceaccount.com'
           credentials_json: '${{ secrets.GCP_SA_KEY }}'
           deliverables: app.yaml
 
     - id: 'deploy'
       uses: 'google-github-actions/deploy-appengine@v0'
-
-
