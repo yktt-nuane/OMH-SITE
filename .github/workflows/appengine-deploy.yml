@@ -15,6 +15,7 @@ jobs:
       with:
         workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
         service_account: ' omh-site-app@myapp-omh.iam.gserviceaccount.com'
+        deliverables: app.yaml
 
     - id: 'deploy'
       uses: 'google-github-actions/deploy-appengine@v0'
