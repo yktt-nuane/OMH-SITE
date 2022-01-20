@@ -3,10 +3,6 @@ on: push
 
 jobs:
   job_id:
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-
     steps:
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
