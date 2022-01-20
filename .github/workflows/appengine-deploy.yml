@@ -2,20 +2,17 @@ name: myapp-omh-deploy
 on: push
 
 jobs:
-  deploy:
-    name: Deploy to App Engine
-    runs-on: ubuntu-latest
+  job_id:
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
     steps:
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
       with:
-          project_id: omh-site-app
-          service_account: 'omh-site-app@myapp-omh.iam.gserviceaccount.com'
-          credentials_json: '${{ secrets.GCP_SA_KEY }}'
-          deliverables: app.yaml
-    - name: Checkout
-        uses: actions/checkout@v2
-    - name: Google App Engine
-        uses: google-github-actions/deploy-appengine@v0.4.0
-        with:
-          deliverables: app.yaml
+        workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+        service_account: ' omh-site-app@myapp-omh.iam.gserviceaccount.com'
+
+    - id: 'deploy'
+      uses: 'google-github-actions/deploy-appengine@v0'
