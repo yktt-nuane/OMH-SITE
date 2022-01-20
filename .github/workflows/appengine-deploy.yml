@@ -1,3 +1,6 @@
+name: myapp-omh-deploy
+on: push
+
 jobs:
   job_id:
     permissions:
