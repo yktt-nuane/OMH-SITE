@@ -10,8 +10,9 @@ jobs:
       with:
         service_account: 'omh-site-app@myapp-omh.iam.gserviceaccount.com'
         credentials_json: '${{ secrets.GCP_SA_KEY }}'
+        deliverables: app.yaml
 
     - id: 'deploy'
       uses: 'google-github-actions/deploy-appengine@v0'
-      deliverables: app.yaml
+
 
