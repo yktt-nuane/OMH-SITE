@@ -27,5 +27,5 @@ jobs:
         version: 'v1'
         project_id: '${{ secrets.GCP_PROJECT_ID }}'
       env:
-        omhapp: ${{ secrets.omhapp }}
+        OMHAPP: ${{ secrets.OMHAPP }}
 
