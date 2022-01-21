@@ -18,6 +18,12 @@ jobs:
         credentials_json: '${{ secrets.GCP_SA_KEY }}'
         service_account: 'omh-site-app@myapp-omh.iam.gserviceaccount.com'
 
+    - name: Create dot env file
+    - shell: bash
+      run: |
+        touch .env
+        echo "omhapp=${{ secrets.omhapp }}" >> .env
+
     - name: 'Deploy to App Engine'
       uses: 'google-github-actions/deploy-appengine@v0'
 
