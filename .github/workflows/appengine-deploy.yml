@@ -16,7 +16,6 @@ jobs:
         touch .env
         echo "${{ secrets.OMHAPP }}" >> .env
 
-
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
       with:
@@ -29,6 +28,7 @@ jobs:
       with:
         deliverables: 'app.yaml'
         promote: false
+        version: 'v1'
         project_id: '${{ secrets.GCP_PROJECT_ID }}'
 
 
