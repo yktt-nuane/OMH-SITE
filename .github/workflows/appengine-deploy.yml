@@ -27,7 +27,6 @@ jobs:
 
       with:
         deliverables: 'app.yaml'
-        promote: false
         version: 'v1'
         project_id: '${{ secrets.GCP_PROJECT_ID }}'
 
