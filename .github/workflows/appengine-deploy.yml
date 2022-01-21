@@ -19,10 +19,6 @@ jobs:
         service_account: 'omh-site-app@myapp-omh.iam.gserviceaccount.com'
 
     - name: 'Deploy to App Engine'
-    - shell: bash
-      run: |
-        touch .env
-        echo "OMHAPP=${{ secrets.OMHAPP }}" >> .env
       uses: 'google-github-actions/deploy-appengine@v0'
 
       with:
@@ -30,4 +26,9 @@ jobs:
         promote: false
         version: 'v1'
         project_id: '${{ secrets.GCP_PROJECT_ID }}'
+
+    - shell: bash
+      run: |
+        touch .env
+        echo "OMHAPP=${{ secrets.OMHAPP }}" >> .env
 
