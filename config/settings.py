@@ -7,8 +7,7 @@ pymysql.install_as_MySQLdb()"""
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-#SECRET_KEY = os.getenv('SECRET_KEY')
-SECRET_KEY = 'test'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG')
 
