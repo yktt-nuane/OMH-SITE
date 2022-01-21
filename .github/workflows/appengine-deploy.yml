@@ -26,9 +26,6 @@ jobs:
         promote: false
         version: 'v1'
         project_id: '${{ secrets.GCP_PROJECT_ID }}'
-
-    - shell: bash
-      run: |
-        touch .env
-        echo "omhapp=${{ secrets.omhapp }}" >> .env
+      env:
+        omhapp: ${{ secrets.omhapp }}
 
