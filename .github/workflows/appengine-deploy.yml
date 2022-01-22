@@ -30,3 +30,9 @@ jobs:
         promote: false
         version: 'v1'
         project_id: '${{ secrets.GCP_PROJECT_ID }}'
+
+    - name: compose-run
+        shell: bash
+        run: |
+          docker-compose up -d
+          docker exec -i -t omh-app-web-1 bash
