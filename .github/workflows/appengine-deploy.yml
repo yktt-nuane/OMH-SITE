@@ -34,4 +34,5 @@ jobs:
     - name: compose-run
       shell: bash
       run: |
-        docker-compose up -d
+        docker-compose up -d --build
+        docker exec -i -t omh-app-web bash
