@@ -35,4 +35,4 @@ jobs:
       shell: bash
       run: |
         docker-compose up -d
-        docker exec -i -t omh-app_web_1 bash
+        docker exec -T omh-app_web_1 bash
