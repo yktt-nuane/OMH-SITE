@@ -4,3 +4,4 @@ mysqlclient
 Pillow
 django-ckeditor
 django-import-export
+django-environ

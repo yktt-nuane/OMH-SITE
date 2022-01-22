@@ -1,15 +1,20 @@
 import os
 from pathlib import Path
 
+import environ
+
+env = environ.Env()
+env.read_env('.env')
+
 """import pymysql  # noqa: 402
 pymysql.version_info = (1, 4, 6, 'final', 0)  # change mysqlclient version
 pymysql.install_as_MySQLdb()"""
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = os.getenv('DEBUG')
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
