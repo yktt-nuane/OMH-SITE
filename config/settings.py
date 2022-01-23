@@ -72,15 +72,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+
+
 if os.getenv('GAE_APPLICATION', None):
     # GAE
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/myapp-omh:us-central1:omh-app-test',
-            'USER': '[DB_USERNAME]',
-            'PASSWORD': '[DB_USERPASS]',
-            'NAME': '[DB_NAME]',
+            'HOST': '/cloudsql/{}'.format(os.environ['DB_CONNECTION']),
+            'USER': os.environ['DB_USERNAME'],
+            'PASSWORD': os.environ['DB_USERPASS'],
+            'NAME': os.environ['DB_NAME'],
         }
     }
 else:
