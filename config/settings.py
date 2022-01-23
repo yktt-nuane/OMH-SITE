@@ -91,9 +91,9 @@ if os.getenv('GAE_APPLICATION', None):
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'HOST': '/cloudsql/myapp-omh:us-central1:omh-app-test',
-            'USER': 'testuser',
-            'PASSWORD': 'uhLbcAlIdkxiOvK6',
-            'NAME': 'omh-app-test',
+            'USER': '[DB_USERNAME]',
+            'PASSWORD': '[DB_USERPASS]',
+            'NAME': '[DB_NAME]',
         }
     }
 else:
