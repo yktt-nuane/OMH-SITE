@@ -72,19 +72,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-"""
-DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': 'db',
-            'PORT': '3306',
-            'NAME': 'omh-app-test',
-            'USER': 'testuser',
-            'PASSWORD': 'uhLbcAlIdkxiOvK6',
-        }
-    }
-"""
-
 if os.getenv('GAE_APPLICATION', None):
     # GAE
     DATABASES = {
