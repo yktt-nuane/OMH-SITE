@@ -11,3 +11,14 @@ handlers:
   - url: .*
     secure: always
     script: auto
+
+libraries:
+- name: ssl
+  version: latest
+- name: MySQLdb
+  version: latest
+
+env_variables:
+  CLOUDSQL_CONNECTION_NAME: myapp-omh:us-central1:omh-app-test
+  CLOUDSQL_USER: testuser
+  CLOUDSQL_PASSWORD: uhLbcAlIdkxiOvK6
