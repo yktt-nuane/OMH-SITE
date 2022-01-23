@@ -15,9 +15,6 @@ services:
 
     db:
         container_name: db
-        environment:
-            PYTHONDONTWRITEBYTECODE: 1
-            SQL_SECRET: ${{ secrets.SQL_SECRET }}
         image: gcr.io/cloudsql-docker/gce-proxy:1.19.1
         command:
             ["/cloud_sql_proxy",
