@@ -5,4 +5,3 @@ Pillow
 django-ckeditor
 django-import-export
 django-environ
-google-cloud-secret-manager
