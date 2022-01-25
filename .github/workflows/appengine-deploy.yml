@@ -35,6 +35,8 @@ jobs:
       shell: bash
       env:
         OMHAPP: ${{ secrets.OMHAPP }}
+      with:
+        SQL_SECRET: ${{ secrets.SQL_SECRET }}
       run: |
         docker-compose up -d --build
         docker-compose exec -i omh-app_web_1 bash

@@ -19,8 +19,6 @@ services:
         command:
             ["/cloud_sql_proxy",
             "-instances=myapp-omh:us-central1:omh-app-test=tcp:0.0.0.0:3306",
-            "-credential_file=/config/myapp-omh-b44933797972.json"]
-        volumes:
-            - "/Users/tatsuro/Library/Mobile Documents/com~apple~CloudDocs/omh-app/myapp-omh-b44933797972.json:/config/myapp-omh-b44933797972.json"
+            "-credential_file=/config/$SUPER_SECRET"]
         ports:
             - "3306:3306"
