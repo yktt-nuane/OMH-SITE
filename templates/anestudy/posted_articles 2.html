@@ -1,0 +1,15 @@
+{% extends 'anestudy/base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row row-cols-3" style="height: 300px">
+        {% for obj in page_obj %}
+            <div class="d-flex align-items-center justify-content-center bg-light border border-dark">
+                <a href="/anestudy/posted_article/{{obj.id}}/" class="">{{ obj.title }}</a>
+            </div>
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock %}
