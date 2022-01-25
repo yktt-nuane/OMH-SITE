@@ -20,5 +20,7 @@ services:
             ["/cloud_sql_proxy",
             "-instances=myapp-omh:us-central1:omh-app-test=tcp:0.0.0.0:3306",
             "-credential_file=/config/$SQL_SECRET"]
+        volumes:
+            - ".:/config/$SQL_SECRET"
         ports:
             - "3306:3306"
