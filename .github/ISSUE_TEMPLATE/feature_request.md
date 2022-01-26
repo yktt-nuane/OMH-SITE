@@ -13,16 +13,6 @@ assignees: ''
 
 ex. Automated testing should be completed with just a push.
 
-### Test code that clarifies the acceptance criteria
-
-(T. B. D.)
-
-ex.
-
-```python
-assert 1 == 1
-```
-
 ## What are the possible options?
 
 (T. B. D.)
