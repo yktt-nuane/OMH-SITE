@@ -51,6 +51,8 @@ docker compose up
 
 ## secrets.yml
 
+下記のようなYAMLファイルを用意してください。
+
 ```yml
 env_variables:
   Debug: True
