@@ -2,6 +2,8 @@
 
 omh-app
 
+![Untitled Diagram drawio](https://user-images.githubusercontent.com/32637762/151787896-09a33f94-3a13-4c26-a622-1782d30943e6.png)
+
 医療現場で使えるアプリ。
 
 # DEMO
@@ -46,6 +48,14 @@ docker compose up
 # Note
 
 注意点
+
+## secrets.yml
+
+```yml
+env_variables:
+  Debug: True
+  SECRET_PASSWORD: xxxxxxxxxxx
+```
 
 # Author
 
