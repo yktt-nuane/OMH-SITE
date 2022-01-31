@@ -11,3 +11,6 @@ handlers:
   - url: .*
     secure: always
     script: auto
+
+includes:
+  - secrets.yml
