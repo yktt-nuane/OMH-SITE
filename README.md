@@ -2,7 +2,7 @@
 
 omh-app
 
-医療現場で使えるアプリ。
+[README.pdf](https://github.com/yktt-nuane/omh-app/files/7983785/README.pdf)
 
 ## DEMO
 
@@ -52,7 +52,7 @@ docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud compute
 python manage.py migrate
 ```
 
-add `myapp-omh-b44933797972.json` to omh-app/
+add myapp-omh-b44933797972.json to omh-app/
 
 ```bash
 docker compose up -d --build
