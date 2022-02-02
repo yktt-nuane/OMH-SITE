@@ -4,7 +4,6 @@ omh-app
 
 ![模式図](https://user-images.githubusercontent.com/61369434/152098775-f1fe7ae4-bbdd-4979-8634-7b6d45fce597.png)
 
-
 ## DEMO
 
 ![スクリーンショット 2022-01-18 13 44 33](https://user-images.githubusercontent.com/61369434/149872436-7522d921-33fc-4f85-84cc-f8eebb901ae1.png)
@@ -48,16 +47,11 @@ docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud compute
 
 ## Usage
 
-```bash
+add 'myapp-omh-b44933797972.json' to omh-app/
 
+```bash
 python manage.py migrate
-```
-
-add myapp-omh-b44933797972.json to omh-app/
-
-```bash
 docker compose up -d --build
-docker compose up
 ```
 
 ## Note
