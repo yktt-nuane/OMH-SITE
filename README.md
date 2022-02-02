@@ -2,7 +2,8 @@
 
 omh-app
 
-[README.pdf](https://github.com/yktt-nuane/omh-app/files/7983785/README.pdf)
+![模式図](https://user-images.githubusercontent.com/61369434/152098775-f1fe7ae4-bbdd-4979-8634-7b6d45fce597.png)
+
 
 ## DEMO
 
