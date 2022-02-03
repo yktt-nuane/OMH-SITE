@@ -15,12 +15,15 @@ services:
 
     db:
         container_name: db
-        image: gcr.io/cloudsql-docker/gce-proxy:1.19.1
+        image: "gcr.io/cloudsql-docker/gce-proxy:1.28.1"
         command:
             ["/cloud_sql_proxy",
+            "-dir=/cloudsql",
             "-instances=myapp-omh:us-central1:omh-app-test=tcp:0.0.0.0:3306",
             "-credential_file=/config/myapp-omh-b44933797972.json"]
         volumes:
-            - ".:/config/"
+            - "./:/config/"
+        env_file:
+            - .env
         ports:
             - "3306:3306"

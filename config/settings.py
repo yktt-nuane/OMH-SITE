@@ -74,17 +74,21 @@ if os.getenv('GAE_APPLICATION', None):
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'HOST': '/cloudsql/myapp-omh:us-central1:omh-app-test',
-            'USER': '[DB_USERNAME]',
-            'PASSWORD': '[DB_USERPASS]',
-            'NAME': '[DB_NAME]',
+            'USER': env('DB_USERNAME'),
+            'PASSWORD': env('DB_USERNAME'),
+            'NAME': env('DB_NAME'),
         }
     }
 else:
     # ローカル
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': env('DB_NAME'),
+            'USER': env('DB_USERNAME'),
+            'PASSWORD': env('DB_USERPASS'),
+            'HOST': 'db',
+            'PORT': 3306,
         }
     }
 
