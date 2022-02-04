@@ -1,6 +1,4 @@
-# Name（リポジトリ/プロジェクト/OSSなどの名前）
-
-omh-app
+# OMH-SITE
 
 ![模式図](https://user-images.githubusercontent.com/61369434/152098775-f1fe7ae4-bbdd-4979-8634-7b6d45fce597.png)
 
@@ -20,20 +18,13 @@ omh-app
 
 ## Requirement
 
-* Django>=4.0,<5.0
-* gunicorn==20.0.4
-* mysqlclient
-* Pillow
 * Docker version 20.10.11
 * Docker Compose version v2.2.1
-* django-ckeditor
-* django-import-export
 
 ```bash
+git clone https://github.com/yktt-nuane/omh-app.git
 python3.9 -m venv venv
 source venv/bin/activate
-git clone https://github.com/yktt-nuane/omh-app.git
-pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
@@ -47,25 +38,22 @@ docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud compute
 
 ## Usage
 
-add 'myapp-omh-b44933797972.json' to omh-app/
+add `myapp-omh-b44933797972.json` to `omh-app/`
 
 ```bash
-python manage.py migrate
 docker compose up -d --build
+docker compose run web python manage.py migrate
 ```
 
 ## Note
 
-注意点
+None
 
 ## Author
 
-作成情報を列挙する
-
-* 作成者
-* 所属
-* E-mail
+* yktt-nuane
+* shin-sforzando
 
 ## License
 
-ライセンスを明示する
+"OMH-SITE" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
