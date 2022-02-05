@@ -36,6 +36,18 @@ docker run -ti --name gcloud-config google/cloud-sdk gcloud auth login
 docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud compute instances list --project myapp-omh
 ```
 
+### requirements.txt
+
+```bash
+Django>=4.0,<5.0
+gunicorn==20.0.4
+mysqlclient
+Pillow
+django-ckeditor
+django-import-export
+django-environ
+```
+
 ## Usage
 
 add `myapp-omh-b44933797972.json` to `omh-app/`
