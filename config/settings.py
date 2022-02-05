@@ -68,7 +68,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-if os.getenv('GAE_APPLICATION', None):
+if not os.getenv('GAE_APPLICATION', None):
     # ローカル
     DATABASES = {
         'default': {
