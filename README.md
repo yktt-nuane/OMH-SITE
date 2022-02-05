@@ -1,6 +1,8 @@
 # OMH-SITE
 
 ![模式図](https://user-images.githubusercontent.com/61369434/152098775-f1fe7ae4-bbdd-4979-8634-7b6d45fce597.png)
+OMH: OgakiMunicipalHospital</br>
+OMH-SITE is the site for anesthsiologists and intencivists to study real world medicine.
 
 ## DEMO
 
@@ -24,7 +26,6 @@
 git clone https://github.com/yktt-nuane/OMH-SITE.git
 python3.9 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
 ```
 
 ## Installation
@@ -39,10 +40,23 @@ docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud compute
 
 add `myapp-omh-b44933797972.json` to `omh-app/`
 
+## Initialize
+
 ```bash
 docker compose up -d --build
+```
+
+## Develop
+
+### Start
+
+```bash
 docker compose run web python manage.py migrate
 ```
+
+### View
+
+access to `http://0.0.0.0:8000/`
 
 ## Note
 
