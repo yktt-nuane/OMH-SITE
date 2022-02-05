@@ -16,7 +16,6 @@ urlpatterns = [
     path('anestudy/', include('anestudy.urls')),
     path('signup/', views.signup),
     path('mypage/', views.MypageView.as_view()),
-    path('contact/', views.contact),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('posted_articles_top/add/postarticle', views.add_post, name='add_post'),
     path('edit/postarticle/<int:postarticle_id>/', views.edit_post, name='edit_post')
