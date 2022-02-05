@@ -157,3 +157,4 @@ memo.yaml
 .editorconfig
 .DS_Store
 .json
+secrets.yml
