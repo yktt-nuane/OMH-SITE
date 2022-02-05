@@ -69,17 +69,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 if os.getenv('GAE_APPLICATION', None):
-    # GAE
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/myapp-omh:us-central1:omh-app-test',
-            'USER': env('DB_USERNAME'),
-            'PASSWORD': env('DB_USERNAME'),
-            'NAME': env('DB_NAME'),
-        }
-    }
-else:
     # ローカル
     DATABASES = {
         'default': {
@@ -91,6 +80,18 @@ else:
             'PORT': 3306,
         }
     }
+else:
+    # GAE
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '/cloudsql/myapp-omh:us-central1:omh-app-test',
+            'USER': env('DB_USERNAME'),
+            'PASSWORD': env('DB_USERNAME'),
+            'NAME': env('DB_NAME'),
+        }
+    }
+
 
 
 AUTH_PASSWORD_VALIDATORS = [
