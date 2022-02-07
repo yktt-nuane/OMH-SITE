@@ -85,7 +85,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/myapp-omh:us-central1:omh-app-test',
+            'HOST': '/cloudsql/omh-site-test:us-central1:omh-site-instance',
             'USER': env('DB_USERNAME'),
             'PASSWORD': env('DB_USERNAME'),
             'NAME': env('DB_NAME'),
