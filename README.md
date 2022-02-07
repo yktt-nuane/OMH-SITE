@@ -72,7 +72,17 @@ access to `http://0.0.0.0:8000/`
 
 ## Note
 
-None
+### secrets.yml
+
+```bash
+SECRET_KEY=********
+DEBUG=********
+DB_NAME=********
+DB_USERNAME=********
+DB_USERPASS=********
+DB_CONNECTION=********
+DATABASE_URL=********
+```
 
 ## Author
 
