@@ -22,15 +22,10 @@ OMH-SITE is the site for anesthsiologists and intencivists to study real world m
 * Docker version 20.10.11
 * Docker Compose version v2.2.1
 
-```bash
-git clone https://github.com/yktt-nuane/OMH-SITE.git
-python3.9 -m venv venv
-source venv/bin/activate
-```
-
 ## Installation
 
 ```bash
+git clone https://github.com/yktt-nuane/OMH-SITE.git
 docker pull google/cloud-sdk:latest
 docker run -ti --name gcloud-config google/cloud-sdk gcloud auth login
 docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud compute instances list --project myapp-omh
