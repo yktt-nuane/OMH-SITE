@@ -85,4 +85,4 @@ DB_CONNECTION=********
 
 ## License
 
-"OMH-SITE" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+"OMH-SITE" is under [MIT license](https://opensource.org/licenses/mit-license.php).
