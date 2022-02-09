@@ -45,7 +45,7 @@ django-environ
 
 ## Usage
 
-add `myapp-omh-b44933797972.json` to `omh-app/`
+Add `CloudSQL-management.json` and `secrets.yml` to `/` .
 
 ## Initialize
 
