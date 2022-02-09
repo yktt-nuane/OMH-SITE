@@ -63,7 +63,7 @@ docker compose run web python manage.py migrate
 
 ### View
 
-access to `http://0.0.0.0:8000/`
+Access to `http://0.0.0.0:8000/` .
 
 ## Note
 
