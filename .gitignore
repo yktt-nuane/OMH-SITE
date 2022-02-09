@@ -154,6 +154,5 @@ cython_debug/
 # End of https://www.toptal.com/developers/gitignore/api/django
 
 memo.yaml
-.editorconfig
 .DS_Store
 .json
