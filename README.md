@@ -72,11 +72,10 @@ Access to `http://0.0.0.0:8000/` .
 ```bash
 SECRET_KEY=********
 DEBUG=********
-DB_NAME=********
+DB_URL=********
 DB_USERNAME=********
 DB_USERPASS=********
 DB_CONNECTION=********
-DATABASE_URL=********
 ```
 
 ## Author
