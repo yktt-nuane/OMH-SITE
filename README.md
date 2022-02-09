@@ -19,35 +19,15 @@ OMH-SITE is the site for anesthsiologists and intencivists to study real world m
 
 ## Requirement
 
+* Django>=4.0,<5.0
 * Docker version 20.10.11
 * Docker Compose version v2.2.1
 
-## Installation
-
-```bash
-git clone https://github.com/yktt-nuane/OMH-SITE.git
-docker pull google/cloud-sdk:latest
-docker run -ti --name gcloud-config google/cloud-sdk gcloud auth login
-docker run --rm -ti --volumes-from gcloud-config google/cloud-sdk gcloud compute instances list --project myapp-omh
-```
-
-### requirements.txt
-
-```bash
-Django>=4.0,<5.0
-gunicorn==20.0.4
-mysqlclient
-Pillow
-django-ckeditor
-django-import-export
-django-environ
-```
-
-## Usage
-
-add `myapp-omh-b44933797972.json` to `omh-app/`
-
 ## Initialize
+
+Add `CloudSQL-management.json` and `secrets.yml` to `/` .
+
+## Build
 
 ```bash
 docker compose up -d --build
@@ -55,28 +35,27 @@ docker compose up -d --build
 
 ## Develop
 
-### Start
+### Migrate
 
 ```bash
+docker compose run web python manage.py makemigrations
 docker compose run web python manage.py migrate
 ```
 
 ### View
 
-access to `http://0.0.0.0:8000/`
+Access to `http://0.0.0.0:8000/` .
 
 ## Note
 
 ### secrets.yml
 
 ```bash
-SECRET_KEY=********
+DJANGO_SECRET_KEY=********
 DEBUG=********
-DB_NAME=********
+DB_URL=********
 DB_USERNAME=********
 DB_USERPASS=********
-DB_CONNECTION=********
-DATABASE_URL=********
 ```
 
 ## Author
@@ -86,4 +65,4 @@ DATABASE_URL=********
 
 ## License
 
-"OMH-SITE" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+"OMH-SITE" is under [MIT license](https://opensource.org/licenses/mit-license.php).
