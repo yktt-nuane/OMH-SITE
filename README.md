@@ -30,7 +30,7 @@ Add `CloudSQL-management.json` and `secrets.yml` to `/` .
 ## Build
 
 ```bash
-docker compose up -d --build
+docker compose up
 ```
 
 ## Develop
