@@ -6,11 +6,11 @@ service: default
 entrypoint: gunicorn -b :$PORT config.wsgi:application
 
 includes:
-    - secrets.yaml
+  - secrets.yaml
 
 handlers:
-    - url: /static
-        static_dir: static/
-    - url: .*
-        secure: always
-        script: auto
+  - url: /static
+    static_dir: static/
+  - url: .*
+    secure: always
+    script: auto
