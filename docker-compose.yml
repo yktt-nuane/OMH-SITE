@@ -13,16 +13,15 @@ services:
     depends_on:
       - db
 
-  db:
-    container_name: db
-    image: gcr.io/cloudsql-docker/gce-proxy:1.19.1
-    command:
-      [
-        "/cloud_sql_proxy",
-        "-instances=myapp-omh:us-central1:omh-app-test=tcp:0.0.0.0:3306",
-        "-credential_file=/config/myapp-omh-b44933797972.json"
-      ]
-    volumes:
-      - "/Users/tatsuro/Library/Mobile Documents/com~apple~CloudDocs/omh-app/myapp-omh-b44933797972.json:/config/myapp-omh-b44933797972.json"
-    ports:
-      - "3306:3306"
+    db:
+        container_name: db
+        image: gcr.io/cloudsql-docker/gce-proxy:1.19.1
+        command:
+            ["/cloud_sql_proxy",
+            "-instances=myapp-omh:us-central1:omh-app-test=tcp:0.0.0.0:3306",
+            "-credential_file=/config/myapp-omh-b44933797972.json"]
+        volumes:
+            - ".:/config/"
+        ports:
+            - "3306:3306"
+
