@@ -5,6 +5,9 @@ service: default
 
 entrypoint: gunicorn -b :$PORT config.wsgi:application
 
+includes:
+  - secrets.yaml
+
 handlers:
   - url: /static
     static_dir: static/
