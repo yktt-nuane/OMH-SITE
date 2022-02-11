@@ -1,26 +1,28 @@
 version: "3.9"
 
 services:
-    web:
-        build: .
-        command: python manage.py runserver 0.0.0.0:8000
-        volumes:
-          - .:/code
-        env_file:
-          - .env
-        ports:
-          - "8000:8000"
-        depends_on:
-          - db
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
 
-    db:
-        container_name: db
-        image: gcr.io/cloudsql-docker/gce-proxy:1.19.1
-        command:
-            ["/cloud_sql_proxy",
-            "-instances=myapp-omh:us-central1:omh-app-test=tcp:0.0.0.0:3306",
-            "-credential_file=/config/myapp-omh-b44933797972.json"]
-        volumes:
-            - "/Users/tatsuro/Library/Mobile Documents/com~apple~CloudDocs/omh-app/myapp-omh-b44933797972.json:/config/myapp-omh-b44933797972.json"
-        ports:
-            - "3306:3306"
+  db:
+    container_name: db
+    image: gcr.io/cloudsql-docker/gce-proxy:1.19.1
+    command:
+      [
+        "/cloud_sql_proxy",
+        "-instances=myapp-omh:us-central1:omh-app-test=tcp:0.0.0.0:3306",
+        "-credential_file=/config/myapp-omh-b44933797972.json"
+      ]
+    volumes:
+      - "/Users/tatsuro/Library/Mobile Documents/com~apple~CloudDocs/omh-app/myapp-omh-b44933797972.json:/config/myapp-omh-b44933797972.json"
+    ports:
+      - "3306:3306"
