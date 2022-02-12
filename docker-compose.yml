@@ -13,17 +13,19 @@ services:
     depends_on:
       - db
 
-    db:
-        container_name: db
-        image: "gcr.io/cloudsql-docker/gce-proxy:1.28.1"
-        command:
-            ["/cloud_sql_proxy",
-            "-dir=/cloudsql",
-            "-instances=omh-site-test:us-central1:omh-site-instance=tcp:0.0.0.0:3306",
-            "-credential_file=/config/CloudSQL-management.json"]
-        volumes:
-            - "./:/config/"
-        env_file:
-            - .env
-        ports:
-            - "3306:3306"
+  db:
+    container_name: db
+    image: "gcr.io/cloudsql-docker/gce-proxy:1.28.1"
+    command:
+      [
+        "/cloud_sql_proxy",
+        "-dir=/cloudsql",
+        "-instances=omh-site-test:us-central1:omh-site-instance=tcp:0.0.0.0:3306",
+        "-credential_file=/config/CloudSQL-management.json"
+      ]
+    volumes:
+      - "./:/config/"
+    env_file:
+      - .env
+    ports:
+      - "3306:3306"
