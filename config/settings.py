@@ -68,23 +68,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-if os.getenv("GAE_APPLICATION", None):
+if not os.getenv("GAE_APPLICATION", None):
+    # ローカル
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.mysql",
+            "NAME": env("DB_NAME"),
+            "USER": env("DB_USERNAME"),
+            "PASSWORD": env("DB_USERPASS"),
+            "HOST": "db",
+            "PORT": 3306,
+        }
+    }
+else:
     # GAE
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.mysql",
-            "HOST": "/cloudsql/myapp-omh:us-central1:omh-app-test",
-            "USER": "[DB_USERNAME]",
-            "PASSWORD": "[DB_USERPASS]",
-            "NAME": "[DB_NAME]",
-        }
-    }
-else:
-    # ローカル
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
+            "HOST": "/cloudsql/omh-site-test:us-central1:omh-site-instance",
+            "USER": env("DB_USERNAME"),
+            "PASSWORD": env("DB_USERPASS"),
+            "NAME": env("DB_NAME"),
         }
     }
 
